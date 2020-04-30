@@ -29,7 +29,17 @@ export GLOG_logtostderr=1
 
 bazel-bin/mediapipe/examples/desktop/object_detection/object_detection_tflite \
   --calculator_graph_config_file=mediapipe/graphs/object_detection/object_detection_desktop_tflite_graph.pbtxt \
-  --input_side_packets=input_video_path=/path/to/input/file,output_video_path=/path/to/output/file
+  --input_side_packets=input_video_path=mediapipe/examples/desktop/object_detection/test_video.mp4,output_video_path=/tmp/object_detection-tflite.mp4
+```
+
+If you get an error like this, see [known issues with opencv 2](https://github.com/google/mediapipe/blob/master/mediapipe/docs/object_detection_desktop.md#known-issues-with-opencv-2):
+
+```
+[libx264 @ 0x7fc490002ea0] broken ffmpeg default settings detected
+[libx264 @ 0x7fc490002ea0] use an encoding preset (e.g. -vpre medium)
+[libx264 @ 0x7fc490002ea0] preset usage: -vpre <speed> -vpre <profile>
+[libx264 @ 0x7fc490002ea0] speed presets are listed in x264 --help
+[libx264 @ 0x7fc490002ea0] profile is optional; x264 defaults to high
 ```
 
 **TensorFlow Object Detection**
