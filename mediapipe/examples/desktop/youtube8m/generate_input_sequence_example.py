@@ -54,7 +54,7 @@ def main(argv):
       flags.FLAGS.clip_start_time_sec * SECONDS_TO_MICROSECONDS, metadata)
   ms.set_clip_end_timestamp(
       flags.FLAGS.clip_end_time_sec * SECONDS_TO_MICROSECONDS, metadata)
-  with open('/tmp/mediapipe/metadata.pb', 'wb') as writer:
+  with open(flags.FLAGS.path_to_output_sequence_example, 'wb') as writer:
     writer.write(six.ensure_binary(metadata.SerializeToString()))
 
 
@@ -63,4 +63,5 @@ if __name__ == '__main__':
   flags.DEFINE_integer('clip_start_time_sec', 0,
                        'Clip start timestamp in seconds')
   flags.DEFINE_integer('clip_end_time_sec', 10, 'Clip end timestamp in seconds')
+  flags.DEFINE_string('path_to_output_sequence_example', '/tmp/mediapipe/metadata.pb', 'Path to the output sequence example file')
   app.run(main)
