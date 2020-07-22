@@ -3,6 +3,7 @@ input_side_packet: "input_video_path"
 input_side_packet: "output_video_path"
 input_side_packet: "segment_size"
 input_side_packet: "overlap"
+output_stream: "annotation_summary"
 
 node {
   calculator: "LocalFileContentsCalculator"
@@ -115,6 +116,7 @@ node {
   output_stream: "TOP_K_INDEXES:top_k_indexes"
   output_stream: "TOP_K_SCORES:top_k_scores"
   output_stream: "TOP_K_LABELS:top_k_labels"
+  output_stream: "SUMMARY:annotation_summary"
   node_options: {
     [type.googleapis.com/mediapipe.TopKScoresCalculatorOptions]: {
       top_k: 3
